@@ -47,7 +47,6 @@ p {
   background-color: #fff;
   display: flex;
   border-radius: 10px;
-  overflow: hidden;
   -webkit-box-shadow: 11px 14px 61px -30px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 11px 14px 61px -30px rgba(0, 0, 0, 0.75);
   box-shadow: 11px 14px 61px -30px rgba(0, 0, 0, 0.75);
@@ -56,6 +55,7 @@ p {
 .drawer {
   width: 40%;
   object-fit: cover;
+  border-radius: 10px 0 0 10px;
 }
 
 article {
@@ -68,7 +68,7 @@ article {
   margin-top: 2rem;
 }
 
-.avatar-section img {
+.avatar-section .avatar {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -79,7 +79,7 @@ article {
   color: var(--grayish-blue);
 }
 
-.avatar-section span {
+.avatar-section .share {
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -93,16 +93,51 @@ article {
   cursor: pointer;
 }
 
-.avatar-section span:hover {
+.avatar-section .share:hover {
   box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.avatar-section span img {
+.avatar-section .share:hover .active {
+  display: flex;
+}
+
+.avatar-section .share img {
   width: 12px;
   height: 12px;
-  margin-right: 0;
-  display: block;
-  border-radius: 0;
+}
+
+.avatar-section .active {
+  display: none;
+  background-color: var(--very-dark-grayish-blue);
+  color: var(--light-grayish-blue);
+  border-radius: 10px;
+  position: absolute;
+  padding: 1rem 2rem;
+  right: -88px;
+  top: -240%;
+  z-index: 100;
+}
+
+.avatar-section .active::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  background-color: var(--very-dark-grayish-blue);
+  transform: rotateZ(45deg);
+}
+
+.avatar-section .active p {
+  padding-right: 0.5rem;
+  letter-spacing: 3px;
+}
+
+.avatar-section .active img {
+  padding: 0 0.5rem;
+  width: auto;
+  height: auto;
 }
 
 @media screen and (max-width: 375px) {
